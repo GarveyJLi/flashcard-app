@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*
+
         // User can tap the screen to make the question invisible
         findViewById(R.id.flashcard_question_textview).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,33 +23,33 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.flashcard_question_textview)).setVisibility
                         (View.INVISIBLE);
                 // change answer form invisible to visible
-                ((TextView) findViewById(R.id.flashcard_answer_textview)).setVisibility
+                ((TextView) findViewById(R.id.correct_flashcard_answer_2_textview)).setVisibility
                         (View.VISIBLE);
 
             }
         });
 
-        findViewById(R.id.correct_flashcard_answer_textview).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.correct_flashcard_answer_2_textview).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // change question from invisible to visible
                 ((TextView) findViewById(R.id.flashcard_question_textview)).setVisibility
                         (View.VISIBLE);
-                // change answer form visible to invisible
-                ((TextView) findViewById(R.id.flashcard_answer_textview)).setVisibility
+                // change answer from visible to invisible
+                ((TextView) findViewById(R.id.correct_flashcard_answer_2_textview)).setVisibility
                         (View.INVISIBLE);
 
             }
         });
 
-         */
 
-        // User can tap the visibility icon to toggle invisibility for the answers
+
+        // User can tap the visibility icon to toggle invisibility for the three answer choices
         findViewById(R.id.toggle_choices_visibility_visible_imageview).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // change answers from visible to invisible
-                ((TextView) findViewById(R.id.correct_flashcard_answer_textview)).setVisibility
+                ((TextView) findViewById(R.id.correct_flashcard_answer_1_textview)).setVisibility
                         (View.INVISIBLE);
                 ((TextView) findViewById(R.id.incorrect_flashcard_answer_1_textview)).setVisibility
                         (View.INVISIBLE);
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // change answers from visible to invisible
-                ((TextView) findViewById(R.id.correct_flashcard_answer_textview)).setVisibility
+                ((TextView) findViewById(R.id.correct_flashcard_answer_1_textview)).setVisibility
                         (View.VISIBLE);
                 ((TextView) findViewById(R.id.incorrect_flashcard_answer_1_textview)).setVisibility
                         (View.VISIBLE);
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         // When user taps the incorrect answer, the tapped answer box color changes to red and
         // the correct box color turns green
         findViewById(R.id.incorrect_flashcard_answer_1_textview).setOnClickListener(new View.OnClickListener() {
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.incorrect_flashcard_answer_1_textview)).setBackgroundColor
                         (getResources().getColor(R.color.wrong_red));
                 // change textbox color for correct answer to green
-                ((TextView) findViewById(R.id.correct_flashcard_answer_textview)).setBackgroundColor
+                ((TextView) findViewById(R.id.correct_flashcard_answer_1_textview)).setBackgroundColor
                         (getResources().getColor(R.color.right_green));
             }
         });
@@ -104,17 +105,17 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.incorrect_flashcard_answer_2_textview)).setBackgroundColor
                         (getResources().getColor(R.color.wrong_red, null));
                 // change textbox color for correct answer to green
-                ((TextView) findViewById(R.id.correct_flashcard_answer_textview)).setBackgroundColor
+                ((TextView) findViewById(R.id.correct_flashcard_answer_1_textview)).setBackgroundColor
                         (getResources().getColor(R.color.right_green, null));
             }
         });
 
         // When user taps correct answer, tapped answer box color will change to green
-        findViewById(R.id.correct_flashcard_answer_textview).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.correct_flashcard_answer_1_textview).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // change textbox color for tapped answer to green
-                ((TextView) findViewById(R.id.correct_flashcard_answer_textview)).setBackgroundColor
+                ((TextView) findViewById(R.id.correct_flashcard_answer_1_textview)).setBackgroundColor
                         (getResources().getColor(R.color.right_green, null));
             }
         });
@@ -124,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Change all answer textbox colors to #d1d
-                ((TextView) findViewById(R.id.correct_flashcard_answer_textview)).setBackgroundColor
+                ((TextView) findViewById(R.id.correct_flashcard_answer_1_textview)).setBackgroundColor
                         (getResources().getColor(R.color.default_box_pink, null));
                 ((TextView) findViewById(R.id.incorrect_flashcard_answer_1_textview)).setBackgroundColor
                         (getResources().getColor(R.color.default_box_pink, null));
