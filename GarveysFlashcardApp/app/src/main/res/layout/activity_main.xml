@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent"
+    tools:context=".MainActivity">
+
+
+
+    <TextView
+        android:id="@+id/flashcard_question_textview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Who is the 44th President of the United States?"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:visibility="visible"
+        android:background="@drawable/card_background"
+        android:textColor="#d1d"
+        android:elevation="10dp" />
+
+    <TextView
+        android:id="@+id/incorrect_flashcard_answer_2_textview"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/flashcard_question_textview"
+        android:text="George H. W. Bush"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:visibility="visible"
+        android:background="#d1d"
+        android:textColor="#c3e478" />
+
+    <TextView
+        android:id="@+id/correct_flashcard_answer_textview"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/incorrect_flashcard_answer_2_textview"
+        android:text="Barack Obama"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:visibility="visible"
+        android:background="#d1d"
+        android:textColor="#c3e478" />
+
+    <TextView
+        android:id="@+id/incorrect_flashcard_answer_1_textview"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/correct_flashcard_answer_textview"
+        android:text="Bill Clinton"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:visibility="visible"
+        android:background="#d1d"
+        android:textColor="#c3e478" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/toggle_choices_visibility_visible_imageview"
+        android:src="@drawable/ic_iconmonstr_eye_off_thin"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/toggle_choices_visibility_invisible_imageview"
+        android:src="@drawable/ic_iconmonstr_eye_thin"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
