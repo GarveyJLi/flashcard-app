@@ -5,13 +5,13 @@
 ### App Description
 An app that displays a flashcard with a question and 3 answer choices below it. 
 When the question is tapped, the "back" of the flashcard containing the answer will show. 
-When the "back" of the flashcard is tapped, the "front" of the flashcard with the question is shown again. 
-When one of the 3 answer choices below the flashcard is tapped
-    -If the answer is correct, the box will turn green
+When the "back" of the flashcard is tapped, the "front" of the flashcard with the question is shown again.\n
+When one of the 3 answer choices below the flashcard is tapped\n
+    -If the answer is correct, the box will turn green\n
     -If the answer is incorrect, the selected box will turn red 
-     and the correct answer box will turn green
+     and the correct answer box will turn green\n
     -If the background is tapped, the boxes change back into their
-     default color
+     default color\n
 When the visibility icon at the bottom of the screen is tapped, the 
 three answer choices will go away. When the icon is tapped again,
 the answer choices will reappear.
