@@ -7,10 +7,35 @@
 
 ### App Walk-though
 
+Flashcard:
+An app that displays a flashcard with a question and 3 answer choices below it. 
+When the question is tapped, the "back" of the flashcard containing the answer will show. 
+When the "back" of the flashcard is tapped, the "front" of the flashcard with the question is shown again.\
+When one of the 3 answer choices below the flashcard is tapped:
+- If the answer is correct, the box outline will turn green
+- If the answer is incorrect, the selected box outline will turn red and the correct answer box will turn green
+- If the background is tapped, the boxes outlines change back into their default color
+
+Creating a new flashcard:
+The user can tap the plus sign in the bottom right corner to bring up an interface with editable textfields that allow them to create a new flashcard. 
+If the X in the bottom right is tapped, the user will be returned to the previous flashcard.
+Once all fields are filled out, the save icon in the bottom left can be tapped to save the new flashcard. 
+If not all fields are filled out, an error message will pop up.
+If succesfully saved, the new flashcard is displayed and a message will pop up saying the flashcard was succesfully created.
+
+Editting the flashcard:
+The user can tap the edit icon in the bottom left to bring up an interface with editable textfields containing the current flashcards contents.
+If the X in the bottom right is tapped, the user will be returned to the previous flashcard.
+Once all fields are filled out, the save icon in the bottom left can be tapped to save the new flashcard. 
+If not all fields are filled out, an error message will pop up.
+If succesfully saved, the new flashcard is displayed and a message will pop up saying the flashcard was succesfully created.
+
+When the visibility icon at the bottom of the screen is tapped, the 
+three answer choices will go away. When the icon is tapped again,
+the answer choices will reappear.
+
 
 <img src="http://g.recordit.co/Nf3Squ9jyR.gif" width=200><br>
-
-`TODO://` In the User stories section below, add an `x` between the `-[ ]` like this `- [x]` for any user story you complete. (☝️ Remove this paragraph after after checking off user stories)
 
 ## Required
 - [x] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’
