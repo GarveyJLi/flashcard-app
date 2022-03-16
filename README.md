@@ -3,11 +3,8 @@
 ## Lab 2
 
 ### App Description
-`TODO://` Add app description
 
-### App Walk-though
-
-The app displays a flashcard 
+The app displays a flashcard. It can be editted or a new flashcard can be created.
 
 Flashcard:
 
@@ -39,8 +36,7 @@ Once all fields are filled out, the save icon in the bottom left can be tapped t
 If not all fields are filled out, an error message will pop up.
 If succesfully saved, the new flashcard is displayed and a message will pop up saying the flashcard was succesfully created.
 
-
-
+### App Walk-though
 
 <img src="http://g.recordit.co/Nf3Squ9jyR.gif" width=200><br>
 
