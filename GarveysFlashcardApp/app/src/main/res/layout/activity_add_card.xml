@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/baby_blue"
+    tools:context=".AddCardActivity">
+
+    <ImageView
+        android:id="@+id/cancel_new_flashcard_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_iconmonstr_x_mark_5"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/save_new_flascard_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_baseline_save_alt_24"
+
+        />
+
+    <EditText
+        android:id="@+id/enter_question_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/edit_question_background"
+        android:hint="Enter The Question Here"
+        android:textColor="@color/dark_blue" />
+
+    <EditText
+        android:id="@+id/incorrect_answer_1_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enter_question_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/edit_wrong_background"
+        android:hint="Enter Incorrect Answer Here"
+        android:textColor="@color/dark_blue" />
+
+    <EditText
+        android:id="@+id/correct_answer_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/incorrect_answer_1_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/edit_right_background"
+        android:hint="Enter Correct Answer Here"
+        android:textColor="@color/dark_blue" />
+
+    <EditText
+        android:id="@+id/incorrect_answer_2_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/correct_answer_edittext"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/edit_wrong_background"
+        android:hint="Enter Incorrect Answer Here"
+        android:textColor="@color/dark_blue" />
+
+
+</RelativeLayout>

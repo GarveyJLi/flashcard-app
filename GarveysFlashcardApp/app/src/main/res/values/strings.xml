@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Garvey\'s Flashcard App</string>
+    <string name="snackbar_text">Must fill out all fields</string>
 </resources>

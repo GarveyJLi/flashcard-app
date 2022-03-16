@@ -5,12 +5,12 @@
     <corners android:radius="10dp" />
     <stroke
         android:width="10dp"
-        android:color="@color/baby_blue" />
-    <solid android:color="#9fc5e8" />
+        android:color="@color/wrong_red" />
+    <solid android:color="@color/baby_blue" />
     <padding
-        android:bottom="10dp"
-        android:left="10dp"
-        android:right="10dp"
-        android:top="10dp" />
+        android:bottom="20dp"
+        android:left="20dp"
+        android:right="20dp"
+        android:top="20dp" />
 
 </shape>

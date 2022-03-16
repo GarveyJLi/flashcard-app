@@ -6,9 +6,20 @@
         <entry key="..\:/Users/garve/CodePath/GarveysFlashcardApp/app/src/main/res/drawable/card_background.xml" value="0.1395" />
         <entry key="..\:/Users/garve/CodePath/GarveysFlashcardApp/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/card_background.xml" value="0.1875" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/edit_background.xml" value="0.2055" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/edit_question_background.xml" value="0.2055" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/edit_right_background.xml" value="0.2055" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/edit_wrong_background.xml" value="0.2055" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1875" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/ic_baseline_save_alt_24.xml" value="0.1875" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/ic_iconmonstr_plus_6.xml" value="0.1875" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/ic_iconmonstr_x_mark_5.xml" value="0.1875" />
         <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/reverse_card_background.xml" value="0.1875" />
         <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/reverse_card_backgroung.xml" value="0.1875" />
         <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/reverse_drawable_card.xml" value="0.1875" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/right_card_background.xml" value="0.1875" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/drawable/wrong_card_background.xml" value="0.1875" />
+        <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/layout/activity_add_card.xml" value="0.264" />
         <entry key="..\:/Users/garve/CodePath/flashcard-app/GarveysFlashcardApp/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
       </map>
     </option>
