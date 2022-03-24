@@ -3,25 +3,6 @@
 ## Lab 3
 
 ### App Description
-`TODO://` Add app description
-
-### App Walk-though
-
-<img src="http://g.recordit.co/bRttuJUfLN.gif" width=200><br>
-
-## Required
-- [x] User can create a card and still see their created card when the app is relaunched.
-- [x] User can create muliple cards and browse through all created cards
-
-## Optional
-- [x] User can delete a card and no longer see it in their deck anymore
-- [x] Flashcards are shown in random order instead of the order they were created in
-- [ ] User can edit a card and see the edit saved when they browse through their deck of cards
-- [x] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown
-
-## Lab 2
-
-### App Description
 
 The app displays a flashcard. It can be editted or a new flashcard can be created.
 
@@ -55,6 +36,29 @@ Once all fields are filled out, the save icon in the bottom left can be tapped t
 If not all fields are filled out, an error message will pop up.
 If succesfully saved, the new flashcard is displayed and a message will pop up saying the flashcard was succesfully created.
 
+Deleting a flashcard:
+
+The user can tap the delete button to delete a flashcard. If no flashcards exist, the flashcard will show the prompt "Create new flashcard".
+
+The cards will be saved even after the app is closed. If there are multiple flashcards saved, the user can tap the right arrow or the shuffle button.
+Tapping the right arrow will switch to the next card, and the shuffle button will switch to a random card.
+
+### App Walk-though
+
+<img src="http://g.recordit.co/bRttuJUfLN.gif" width=200><br>
+
+## Required
+- [x] User can create a card and still see their created card when the app is relaunched.
+- [x] User can create muliple cards and browse through all created cards
+
+## Optional
+- [x] User can delete a card and no longer see it in their deck anymore
+- [x] Flashcards are shown in random order instead of the order they were created in
+- [ ] User can edit a card and see the edit saved when they browse through their deck of cards
+- [x] User can create flashcards with multiple answers and be able to browse through cards with multiple choice answers shown
+
+## Lab 2
+
 ### App Walk-though
 
 <img src="http://g.recordit.co/Nf3Squ9jyR.gif" width=200><br>
@@ -74,19 +78,6 @@ If succesfully saved, the new flashcard is displayed and a message will pop up s
 - [x] App is further styled and customized!
 
 ## Lab 1
-
-### App Description
-An app that displays a flashcard with a question and 3 answer choices below it. 
-When the question is tapped, the "back" of the flashcard containing the answer will show. 
-When the "back" of the flashcard is tapped, the "front" of the flashcard with the question is shown again.\
-When one of the 3 answer choices below the flashcard is tapped:
-- If the answer is correct, the box will turn green
-- If the answer is incorrect, the selected box will turn red and the correct answer box will turn green
-- If the background is tapped, the boxes change back into their default color
-
-When the visibility icon at the bottom of the screen is tapped, the 
-three answer choices will go away. When the icon is tapped again,
-the answer choices will reappear.
 
 
 ### App Walk-though
