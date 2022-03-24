@@ -15,8 +15,16 @@ import com.google.android.material.snackbar.Snackbar;
 import org.w3c.dom.Text;
 
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+
+    // returns a random number between minNumber and maxNumber, inclusive.
+    // for example, if i called getRandomNumber(1, 3), there's an equal chance of it returning either 1, 2, or 3.
+    public int getRandomNumber(int minNumber, int maxNumber) {
+        Random rand = new Random();
+        return rand.nextInt((maxNumber - minNumber) + 1) + minNumber;
+    }
 
     FlashcardDatabase flashcardDatabase;
     List<Flashcard> allFlashcards;
@@ -136,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             incorrect_answer_2.setBackground(getResources().getDrawable(R.drawable.card_background));
         });
 
-        // When user taps the right arrow button, switch cards
+        // When user taps the right arrow button, switch to the next card
         findViewById(R.id.right_button_imageview).setOnClickListener(view -> {
             if (allFlashcards.size() <= 1) {
                 return;
@@ -146,6 +154,22 @@ public class MainActivity extends AppCompatActivity {
                 currentCardDisplayedIndex = 0;
             }
             allFlashcards = flashcardDatabase.getAllCards();
+            Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
+
+            flashcard_question.setText(flashcard.getQuestion());
+            correct_answer_1.setText(flashcard.getAnswer());
+            correct_answer_2.setText(flashcard.getAnswer());
+            incorrect_answer_1.setText(flashcard.getWrongAnswer1());
+            incorrect_answer_2.setText(flashcard.getWrongAnswer2());
+
+        });
+
+        // When user taps the shuffle button, the view switches to a random card
+        findViewById(R.id.random_card_imageview).setOnClickListener(view -> {
+            if (allFlashcards.size() <= 1){
+                return;
+            }
+            currentCardDisplayedIndex = getRandomNumber(0, allFlashcards.size() - 1);
             Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
 
             flashcard_question.setText(flashcard.getQuestion());
