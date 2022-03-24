@@ -10,11 +10,11 @@
     android:background="@color/light_blue"
     tools:context=".MainActivity">
 
-
     <TextView
         android:id="@+id/flashcard_question_textview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_below="@id/delete_imageview"
         android:layout_margin="10dp"
         android:background="@drawable/card_background"
         android:elevation="10dp"
@@ -28,12 +28,12 @@
         android:id="@+id/correct_flashcard_answer_2_textview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_margin="10dp"
         android:background="@drawable/reverse_card_background"
         android:gravity="center"
         android:text="Barack Obama"
         android:textColor="@color/light_blue"
         android:textSize="30dp"
+        android:layout_alignTop="@id/flashcard_question_textview"
         android:visibility="invisible" />
 
     <TextView
@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_margin="10dp"
         android:src="@drawable/ic_iconmonstr_plus_6" />
 
@@ -108,10 +108,27 @@
         android:id="@+id/edit_current_flashcard_imageview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/add_flashcard_button_imageview"
+        android:layout_alignParentTop="true"
         android:layout_margin="10dp"
         android:src="@drawable/ic_baseline_edit_24" />
+
+    <ImageView
+        android:id="@+id/right_button_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/add_flashcard_button_imageview"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/ic_baseline_arrow_forward_24" />
+
+    <ImageView
+        android:id="@+id/delete_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/ic_baseline_delete_24" />
 
 
 </RelativeLayout>

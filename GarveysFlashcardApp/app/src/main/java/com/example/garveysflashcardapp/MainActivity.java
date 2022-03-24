@@ -14,7 +14,14 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.w3c.dom.Text;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    FlashcardDatabase flashcardDatabase;
+    List<Flashcard> allFlashcards;
+    int currentCardDisplayedIndex = 0;
+
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,25 @@ public class MainActivity extends AppCompatActivity {
         TextView correct_answer_2 = ((TextView) findViewById(R.id.correct_flashcard_answer_2_textview));
         TextView incorrect_answer_1 = ((TextView) findViewById(R.id.incorrect_flashcard_answer_1_textview));
         TextView incorrect_answer_2 = ((TextView) findViewById(R.id.incorrect_flashcard_answer_2_textview));
+
+        flashcardDatabase = new FlashcardDatabase(this);
+        allFlashcards = flashcardDatabase.getAllCards();
+
+
+        if (allFlashcards.size() == 0) {
+            flashcardDatabase.insertCard(new Flashcard(flashcard_question.getText().toString(),
+                    correct_answer_1.getText().toString(), incorrect_answer_1.getText().toString(),
+                    incorrect_answer_2.getText().toString()));
+            allFlashcards = flashcardDatabase.getAllCards();
+            currentCardDisplayedIndex = 0;
+        }
+        if (allFlashcards != null && allFlashcards.size() > 0) {
+            flashcard_question.setText(allFlashcards.get(0).getQuestion());
+            correct_answer_1.setText(allFlashcards.get(0).getAnswer());
+            correct_answer_2.setText(allFlashcards.get(0).getAnswer());
+            incorrect_answer_1.setText(allFlashcards.get(0).getWrongAnswer1());
+            incorrect_answer_2.setText(allFlashcards.get(0).getWrongAnswer2());
+        }
 
 
         // User can tap the screen to make the question invisible
@@ -110,6 +136,65 @@ public class MainActivity extends AppCompatActivity {
             incorrect_answer_2.setBackground(getResources().getDrawable(R.drawable.card_background));
         });
 
+        // When user taps the right arrow button, switch cards
+        findViewById(R.id.right_button_imageview).setOnClickListener(view -> {
+            if (allFlashcards.size() <= 1) {
+                return;
+            }
+            currentCardDisplayedIndex += 1;
+            if (currentCardDisplayedIndex >= allFlashcards.size()) {
+                currentCardDisplayedIndex = 0;
+            }
+            allFlashcards = flashcardDatabase.getAllCards();
+            Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
+
+            flashcard_question.setText(flashcard.getQuestion());
+            correct_answer_1.setText(flashcard.getAnswer());
+            correct_answer_2.setText(flashcard.getAnswer());
+            incorrect_answer_1.setText(flashcard.getWrongAnswer1());
+            incorrect_answer_2.setText(flashcard.getWrongAnswer2());
+
+        });
+
+        //User can tap the delete button to delete a flashcard
+
+        findViewById(R.id.delete_imageview).setOnClickListener(view -> {
+            if (allFlashcards.size() == 0) {
+                return;
+            }
+            if (allFlashcards.size() == 1) {
+                flashcardDatabase.deleteCard(flashcard_question.getText().toString());
+                allFlashcards.remove(currentCardDisplayedIndex);
+
+                currentCardDisplayedIndex = 0;
+
+                allFlashcards = flashcardDatabase.getAllCards();
+                flashcard_question.setText("Create new flashcard");
+                correct_answer_1.setText("Create new flashcard");
+                correct_answer_2.setText("Create new flashcard");
+                incorrect_answer_1.setText("Create new flashcard");
+                incorrect_answer_2.setText("Create new flashcard");
+            } else {
+                flashcardDatabase.deleteCard(flashcard_question.getText().toString());
+                allFlashcards.remove(currentCardDisplayedIndex);
+
+                currentCardDisplayedIndex -= 1;
+                if (currentCardDisplayedIndex < 0) {
+                    currentCardDisplayedIndex = allFlashcards.size() - 1;
+                }
+
+                allFlashcards = flashcardDatabase.getAllCards();
+                Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
+
+                flashcard_question.setText(flashcard.getQuestion());
+                correct_answer_1.setText(flashcard.getAnswer());
+                correct_answer_2.setText(flashcard.getAnswer());
+                incorrect_answer_1.setText(flashcard.getWrongAnswer1());
+                incorrect_answer_2.setText(flashcard.getWrongAnswer2());
+            }
+
+        });
+
 
         // User can tap the plus icon to switch from MainActivity to the AddCardActivity
         findViewById(R.id.add_flashcard_button_imageview).setOnClickListener(view -> {
@@ -117,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
             MainActivity.this.startActivityForResult(add_card, 100);
         });
 
+        //User can tap the edit icon to switch to AddCardActivity with text in the edit fields.
         findViewById(R.id.edit_current_flashcard_imageview).setOnClickListener(view -> {
             Intent edit_card = new Intent(MainActivity.this, AddCardActivity.class);
             edit_card.putExtra("current_question", flashcard_question.getText().toString());
@@ -127,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent save_card) {
         super.onActivityResult(requestCode, resultCode, save_card);
@@ -143,17 +230,21 @@ public class MainActivity extends AppCompatActivity {
                 ((TextView) findViewById(R.id.incorrect_flashcard_answer_1_textview)).setText(wrong_answer_1);
                 ((TextView) findViewById(R.id.incorrect_flashcard_answer_2_textview)).setText(wrong_answer_2);
 
+                flashcardDatabase.insertCard(new Flashcard(new_question, correct_answer, wrong_answer_1, wrong_answer_2));
+                allFlashcards = flashcardDatabase.getAllCards();
+                currentCardDisplayedIndex = allFlashcards.size() + 1;
+
                 Snackbar.make(findViewById(R.id.flashcard_question_textview),
                         "Flashcard successfully created",
                         Snackbar.LENGTH_SHORT)
                         .show();
-            }
-            else{
+            } else {
                 Snackbar.make(findViewById(R.id.flashcard_question_textview),
                         "New flashcard cancelled",
                         Snackbar.LENGTH_SHORT)
                         .show();
             }
         }
+
     }
 }
