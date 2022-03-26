@@ -45,7 +45,7 @@ Tapping the right arrow will switch to the next card, and the shuffle button wil
 
 ### App Walk-though
 
-<img src="http://g.recordit.co/20wrj3rNia.gif" width=200><br>
+<img src="http://g.recordit.co/kEQY0FifYy.gif" width=200><br>
 
 ## Required
 - [x] User can create a card and still see their created card when the app is relaunched.
