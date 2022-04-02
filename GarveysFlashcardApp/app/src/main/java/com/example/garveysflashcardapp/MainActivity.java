@@ -210,14 +210,14 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-            if (flashcard_question.getVisibility() == View.VISIBLE) flashcard_question.startAnimation(leftOutAnim);
+            if (flashcard_question.getVisibility() == View.VISIBLE)
+                flashcard_question.startAnimation(leftOutAnim);
             else correct_answer_2.startAnimation(leftOutAnim);
             correct_answer_1.startAnimation(leftOutAnim);
             incorrect_answer_1.startAnimation(leftOutAnim);
             incorrect_answer_2.startAnimation(leftOutAnim);
 
         });
-
 
 
         // When user taps the shuffle button, the view switches to a random card
@@ -269,7 +269,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-            if (flashcard_question.getVisibility() == View.VISIBLE) flashcard_question.startAnimation(rightOutAnim);
+            if (flashcard_question.getVisibility() == View.VISIBLE)
+                flashcard_question.startAnimation(rightOutAnim);
             else correct_answer_2.startAnimation(rightOutAnim);
             correct_answer_1.startAnimation(rightOutAnim);
             incorrect_answer_1.startAnimation(rightOutAnim);
