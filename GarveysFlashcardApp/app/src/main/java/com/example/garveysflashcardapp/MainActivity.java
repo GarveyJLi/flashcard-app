@@ -147,11 +147,10 @@ public class MainActivity extends AppCompatActivity {
             correct_answer_1.setBackground(getResources().getDrawable(R.drawable.right_card_background));
         });
 
-        // When user taps correct answer, tapped answer box color will change to green and confetti will show
+        // When user taps correct answer, tapped answer box color will change to green
         findViewById(R.id.correct_flashcard_answer_1_textview).setOnClickListener(view -> {
             // change textbox color for tapped answer to green
             correct_answer_1.setBackground(getResources().getDrawable(R.drawable.right_card_background));
-            
         });
 
         // When the user taps the background, the answer textbox colors reset to their default colors
