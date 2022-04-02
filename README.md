@@ -23,10 +23,10 @@ the answer choices will reappear.
 Creating a new flashcard:
 
 The user can tap the plus sign in the bottom right corner to bring up an interface with editable textfields that allow them to create a new flashcard. 
-If the X in the bottom right is tapped, the user will be returned to the previous flashcard.
+If the X in the bottom right is tapped, the previous flashcard will slide back in and be displayed.
 Once all fields are filled out, the save icon in the bottom left can be tapped to save the new flashcard. 
 If not all fields are filled out, an error message will pop up.
-If succesfully saved, the new flashcard is displayed and a message will pop up saying the flashcard was succesfully created.
+If succesfully saved, the new flashcard slides in and is displayed and a message will pop up saying the flashcard was succesfully created.
 
 Editting the flashcard:
 
@@ -41,7 +41,7 @@ Deleting a flashcard:
 The user can tap the delete button to delete a flashcard. If no flashcards exist, the flashcard will show the prompt "Create new flashcard".
 
 The cards will be saved even after the app is closed. If there are multiple flashcards saved, the user can tap the right arrow or the shuffle button.
-Tapping the right arrow will switch to the next card, and the shuffle button will switch to a random card.
+Tapping the right arrow will slide to the next card, and the shuffle button will slide to a random card.
 
 
 ### App Walk-though
