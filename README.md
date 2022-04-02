@@ -1,6 +1,6 @@
 # flashcard-app
 
-## Lab 3
+## Lab 4
 
 ### App Description
 
@@ -42,6 +42,25 @@ The user can tap the delete button to delete a flashcard. If no flashcards exist
 
 The cards will be saved even after the app is closed. If there are multiple flashcards saved, the user can tap the right arrow or the shuffle button.
 Tapping the right arrow will switch to the next card, and the shuffle button will switch to a random card.
+
+
+### App Walk-though
+
+<img src="http://g.recordit.co/lnAIEeNUVr.gif" width=200><br>
+
+## Required
+- [x] User sees a transition animation when going from the main screen to the add card screen.
+- [x] User sees a reveal animation when the flashcard is tapped and the answer is shown
+- [x] User sees flashcards animating in / out when the 'next' button is tapped
+
+## Optional
+- [x] Extra styling is added!
+- [ ] User sees a countdown timer for each question
+- [ ] User sees a 'card flip' animation when the card is tapped
+- [ ] User sees a celebration animation with confetti when they answer a question correctly
+
+## Lab 3
+
 
 ### App Walk-though
 
