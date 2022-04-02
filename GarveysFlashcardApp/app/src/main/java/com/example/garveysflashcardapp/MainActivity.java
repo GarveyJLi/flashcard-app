@@ -3,10 +3,14 @@ package com.example.garveysflashcardapp;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,13 +65,26 @@ public class MainActivity extends AppCompatActivity {
             incorrect_answer_2.setText(allFlashcards.get(0).getWrongAnswer2());
         }
 
-
+        boolean showQuestion = true;
         // User can tap the screen to make the question invisible
         flashcard_question.setOnClickListener(view -> {
-            // change question from visible to invisible
+
+            // get the center for the clipping circle
+            int cx = correct_answer_2.getWidth() / 2;
+            int cy = correct_answer_2.getHeight() / 2;
+
+            // get the final radius for the clipping circle
+            float finalRadius = (float) Math.hypot(cx, cy);
+
+            // create the animator for this view (the start radius is zero)
+            Animator anim = ViewAnimationUtils.createCircularReveal(correct_answer_2, cx, cy, 0f, finalRadius);
+
+            // hide the question and show the answer to prepare for playing the animation!
             flashcard_question.setVisibility(View.INVISIBLE);
-            // change answer from invisible to visible
             correct_answer_2.setVisibility(View.VISIBLE);
+
+            anim.setDuration(1000);
+            anim.start();
 
         });
 
@@ -130,10 +147,11 @@ public class MainActivity extends AppCompatActivity {
             correct_answer_1.setBackground(getResources().getDrawable(R.drawable.right_card_background));
         });
 
-        // When user taps correct answer, tapped answer box color will change to green
+        // When user taps correct answer, tapped answer box color will change to green and confetti will show
         findViewById(R.id.correct_flashcard_answer_1_textview).setOnClickListener(view -> {
             // change textbox color for tapped answer to green
             correct_answer_1.setBackground(getResources().getDrawable(R.drawable.right_card_background));
+            
         });
 
         // When the user taps the background, the answer textbox colors reset to their default colors
@@ -154,29 +172,109 @@ public class MainActivity extends AppCompatActivity {
                 currentCardDisplayedIndex = 0;
             }
             allFlashcards = flashcardDatabase.getAllCards();
-            Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
 
-            flashcard_question.setText(flashcard.getQuestion());
-            correct_answer_1.setText(flashcard.getAnswer());
-            correct_answer_2.setText(flashcard.getAnswer());
-            incorrect_answer_1.setText(flashcard.getWrongAnswer1());
-            incorrect_answer_2.setText(flashcard.getWrongAnswer2());
+            final Animation leftOutAnim = AnimationUtils.loadAnimation(view.getContext(), R.anim.left_out);
+            final Animation rightInAnim = AnimationUtils.loadAnimation(view.getContext(), R.anim.right_in);
+
+            leftOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    flashcard_question.startAnimation(rightInAnim);
+                    correct_answer_1.startAnimation(rightInAnim);
+                    //correct_answer_2.startAnimation(rightInAnim);
+                    incorrect_answer_1.startAnimation(rightInAnim);
+                    incorrect_answer_2.startAnimation(rightInAnim);
+                    Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
+
+                    flashcard_question.setText(flashcard.getQuestion());
+                    correct_answer_1.setText(flashcard.getAnswer());
+                    correct_answer_2.setText(flashcard.getAnswer());
+                    incorrect_answer_1.setText(flashcard.getWrongAnswer1());
+                    incorrect_answer_2.setText(flashcard.getWrongAnswer2());
+
+                    flashcard_question.setVisibility(View.VISIBLE);
+                    correct_answer_2.setVisibility(View.INVISIBLE);
+
+                    correct_answer_1.setBackground(getResources().getDrawable(R.drawable.card_background));
+                    incorrect_answer_1.setBackground(getResources().getDrawable(R.drawable.card_background));
+                    incorrect_answer_2.setBackground(getResources().getDrawable(R.drawable.card_background));
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            if (flashcard_question.getVisibility() == View.VISIBLE) flashcard_question.startAnimation(leftOutAnim);
+            else correct_answer_2.startAnimation(leftOutAnim);
+            correct_answer_1.startAnimation(leftOutAnim);
+            incorrect_answer_1.startAnimation(leftOutAnim);
+            incorrect_answer_2.startAnimation(leftOutAnim);
 
         });
 
+
+
         // When user taps the shuffle button, the view switches to a random card
         findViewById(R.id.random_card_imageview).setOnClickListener(view -> {
-            if (allFlashcards.size() <= 1){
+            if (allFlashcards.size() <= 1) {
                 return;
             }
-            currentCardDisplayedIndex = getRandomNumber(0, allFlashcards.size() - 1);
+            int temp = getRandomNumber(0, allFlashcards.size() - 1);
+            while (temp == currentCardDisplayedIndex) {
+                temp = getRandomNumber(0, allFlashcards.size() - 1);
+            }
+            currentCardDisplayedIndex = temp;
             Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
 
-            flashcard_question.setText(flashcard.getQuestion());
-            correct_answer_1.setText(flashcard.getAnswer());
-            correct_answer_2.setText(flashcard.getAnswer());
-            incorrect_answer_1.setText(flashcard.getWrongAnswer1());
-            incorrect_answer_2.setText(flashcard.getWrongAnswer2());
+            final Animation rightOutAnim = AnimationUtils.loadAnimation(view.getContext(), R.anim.left_in);
+            final Animation leftInAnim = AnimationUtils.loadAnimation(view.getContext(), R.anim.right_out);
+
+            rightOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    flashcard_question.startAnimation(leftInAnim);
+                    correct_answer_1.startAnimation(leftInAnim);
+                    //correct_answer_2.startAnimation(leftInAnim);
+                    incorrect_answer_1.startAnimation(leftInAnim);
+                    incorrect_answer_2.startAnimation(leftInAnim);
+                    Flashcard flashcard = allFlashcards.get(currentCardDisplayedIndex);
+
+                    flashcard_question.setText(flashcard.getQuestion());
+                    correct_answer_1.setText(flashcard.getAnswer());
+                    correct_answer_2.setText(flashcard.getAnswer());
+                    incorrect_answer_1.setText(flashcard.getWrongAnswer1());
+                    incorrect_answer_2.setText(flashcard.getWrongAnswer2());
+
+                    flashcard_question.setVisibility(View.VISIBLE);
+                    correct_answer_2.setVisibility(View.INVISIBLE);
+
+                    correct_answer_1.setBackground(getResources().getDrawable(R.drawable.card_background));
+                    incorrect_answer_1.setBackground(getResources().getDrawable(R.drawable.card_background));
+                    incorrect_answer_2.setBackground(getResources().getDrawable(R.drawable.card_background));
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            if (flashcard_question.getVisibility() == View.VISIBLE) flashcard_question.startAnimation(rightOutAnim);
+            else correct_answer_2.startAnimation(rightOutAnim);
+            correct_answer_1.startAnimation(rightOutAnim);
+            incorrect_answer_1.startAnimation(rightOutAnim);
+            incorrect_answer_2.startAnimation(rightOutAnim);
 
         });
 
@@ -224,6 +322,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.add_flashcard_button_imageview).setOnClickListener(view -> {
             Intent add_card = new Intent(MainActivity.this, AddCardActivity.class);
             MainActivity.this.startActivityForResult(add_card, 100);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
         });
 
         //User can tap the edit icon to switch to AddCardActivity with text in the edit fields.
@@ -234,6 +333,7 @@ public class MainActivity extends AppCompatActivity {
             edit_card.putExtra("current_wrong_answer_1", incorrect_answer_1.getText().toString());
             edit_card.putExtra("current_wrong_answer_2", incorrect_answer_2.getText().toString());
             MainActivity.this.startActivityForResult(edit_card, 100);
+            overridePendingTransition(R.anim.right_in, R.anim.left_out);
         });
 
     }

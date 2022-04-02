@@ -28,12 +28,13 @@
         android:id="@+id/correct_flashcard_answer_2_textview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_alignTop="@id/flashcard_question_textview"
+        android:layout_below="@id/delete_imageview"
+        android:layout_margin="10dp"
         android:background="@drawable/reverse_card_background"
         android:gravity="center"
         android:text="Barack Obama"
         android:textColor="@color/light_blue"
-        android:textSize="30dp"
+        android:textSize="40dp"
         android:visibility="invisible" />
 
     <TextView
@@ -136,7 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
-        android:background="@drawable/ic_baseline_shuffle_24"/>
+        android:background="@drawable/ic_baseline_shuffle_24" />
 
 
 </RelativeLayout>

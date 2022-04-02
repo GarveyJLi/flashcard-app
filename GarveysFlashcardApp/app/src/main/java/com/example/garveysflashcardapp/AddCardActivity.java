@@ -36,6 +36,8 @@ public class AddCardActivity extends AppCompatActivity {
         // User can tap the x icon to switch from AddCardActivity to the MainActivity
         findViewById(R.id.cancel_new_flashcard_imageview).setOnClickListener(view -> {
             finish();
+            overridePendingTransition(R.anim.right_out, R.anim.left_in);
+
         });
 
         // User can tap the save icon to switch activities and save the inputted text into the flashcard
@@ -52,6 +54,7 @@ public class AddCardActivity extends AppCompatActivity {
                 save_card.putExtra("correct_answer", correct_answer.getText().toString());
                 setResult(RESULT_OK, save_card);
                 finish();
+                overridePendingTransition(R.anim.right_out, R.anim.left_in);
             }
         });
 
