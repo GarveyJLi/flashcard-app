@@ -30,11 +30,11 @@ If succesfully saved, the new flashcard slides in and is displayed and a message
 
 Editting the flashcard:
 
-The user can tap the edit icon in the bottom left to bring up an interface with editable textfields containing the current flashcards contents.
-If the X in the bottom right is tapped, the user will be returned to the previous flashcard.
+The user can tap the edit icon in the bottom left to slide to an interface with editable textfields containing the current flashcards contents.
+If the X in the bottom right is tapped, the previous flashcard will slide back.
 Once all fields are filled out, the save icon in the bottom left can be tapped to save the new flashcard. 
 If not all fields are filled out, an error message will pop up.
-If succesfully saved, the new flashcard is displayed and a message will pop up saying the flashcard was succesfully created.
+If succesfully saved, the new flashcard slides in and is displayed. A message will pop up saying the flashcard was succesfully created.
 
 Deleting a flashcard:
 
